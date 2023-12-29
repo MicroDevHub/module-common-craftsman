@@ -15,8 +15,9 @@ export class RequestValidationError extends BaseError {
   serializeErrors() {
     return this.errors.map((err: ValidationError) => {
       return {
-        message: err.msg,
-      };
+        message: 'Missing required information. Please provide all parameters.',
+        field: err
+    };
     });
   }
 }
