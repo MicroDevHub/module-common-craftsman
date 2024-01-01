@@ -1,4 +1,4 @@
-import { ValidationError } from 'express-validator';
+import { FieldValidationError, ValidationError } from 'express-validator';
 
 import { BaseError } from './base-error';
 
@@ -13,11 +13,11 @@ export class RequestValidationError extends BaseError {
   }
 
   serializeErrors() {
-    return this.errors.map((err: ValidationError) => {
+    return this.errors.map((err: FieldValidationError) => {
       return {
-        message: 'Missing required information. Please provide all parameters.',
-        field: err
-    };
+        message: err.msg,
+        field: err.path
+      };
     });
   }
 }

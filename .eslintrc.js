@@ -7,10 +7,10 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/recommended',
-		'plugin:import/typescript',
+    'plugin:import/typescript',
   ],
-	parser: '@typescript-eslint/parser',
-	ignorePatterns: ['.eslintrc.js'],
+  parser: '@typescript-eslint/parser',
+  ignorePatterns: ['.eslintrc.js'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -19,30 +19,6 @@ module.exports = {
   root: true,
   plugins: ['@typescript-eslint/eslint-plugin'],
   rules: {
-		'@typescript-eslint/ban-ts-comment': 'off',
-		'@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    'import/order': [
-      'error',
-      {
-        alphabetize: {
-          order: 'asc',
-        },
-        groups: [
-          'builtin',
-          'external',
-          'internal',
-          'parent',
-          'sibling',
-          'index',
-          'object',
-          'type',
-        ],
-        'newlines-between': 'always',
-      },
-    ],
     indent: [
       'error',
       2,
