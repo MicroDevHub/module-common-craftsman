@@ -16,9 +16,9 @@ A Package written by NodeJS which provide common features used in services
 ```
 server: Express = express();
 ```
-2. Import `expressHandler` from `module-common-craftsman`: 
+2. Import `errorHandler` from `@micro-dev-hub/module-common-craftsman`: 
 ```
-import { errorHandler } from 'module-common-craftsman';
+import { errorHandler } from '@micro-dev-hub/module-common-craftsman';
 ```
 3. Use `errorHandler` in express application, make sure errorHandler middleware is added after routes in the express application
 ```
@@ -31,7 +31,7 @@ Example use `validateRequest`:
 import express, { Request, Response } from "express";
 import { body } from "express-validator";
 
-import { validateRequest } from "module-common-craftsman";
+import { validateRequest } from "@micro-dev-hub/module-common-craftsman";
 
 const router = express.Router();
 
@@ -58,7 +58,7 @@ export { router }
 
 Example to use `NotFoundRoutingError`
 ```
-import { NotFoundRoutingError } from 'module-common-craftsman';
+import { NotFoundRoutingError } from '@micro-dev-hub/module-common-craftsman';
 
 server.all("*",  () => {
     throw new NotFoundRoutingError();
@@ -66,9 +66,9 @@ server.all("*",  () => {
 ```
 ### Logger
 
-1. Import `ILogger, LoggerFactory` from `module-common-craftsman`
+1. Import `ILogger, LoggerFactory` from `@micro-dev-hub/module-common-craftsman`
 ```
-import { ILogger, LoggerFactory } from 'module-common-craftsman';
+import { ILogger, LoggerFactory } from '@micro-dev-hub/module-common-craftsman';
 ```
 2. Initialize logger
 ```
@@ -87,8 +87,10 @@ logger.debug('massage');
 
 1. Add ESLint scripts to `package.json`
 ```
-  "lint": "eslint --config ../module-common-craftsman/.eslintrc.js \"src/**/*.{js,ts}\"",
-  "lint:fix": "eslint --config ../module-common-craftsman/.eslintrc.js --fix \"src/**/*.{js,ts}\""
+{
+    "lint": "eslint --config ../@micro-dev-hub/module-common-craftsman/.eslintrc.js \"src/**/*.{js,ts}\"",
+    "lint:fix": "eslint --config ../@micro-dev-hub/module-common-craftsman/.eslintrc.js --fix \"src/**/*.{js,ts}\""
+}
 ```
 2. Use scripts to lint application
 ```
@@ -99,4 +101,22 @@ npm run lint
 # Analyze and fix lint error all ts/js files in application
 
 npm run lint:fix
+```
+
+In case you want to extends/override the rules of eslint
+1. Create .eslintrc.json and extends rules of eslint from module-common-craftsman
+```
+module.exports = {
+  "extends": "../common-services/.eslintrc.js",
+  "rules": {
+    // Add or override rules specific to your backend project
+  }
+}
+```
+2. Add scripts to `package.json`
+```
+{
+    "lint": "eslint \"src/**/*.{js,ts}\"",
+    "lint:fix": "eslint --fix \"src/**/*.{js,ts}\"
+}
 ```

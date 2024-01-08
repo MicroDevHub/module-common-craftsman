@@ -1,15 +1,24 @@
 {
   "name": "@micro-dev-hub/module-common-craftsman",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MicroDevHub/module-common-craftsman.git"
+  },
+  "author": "Kiet Tran",
+  "bugs": {
+    "url": "https://github.com/MicroDevHub/module-common-craftsman/issues"
+  },
+  "homepage": "https://github.com/MicroDevHub/module-common-craftsman#readme",
   "scripts": {
-    "build": "tsc -p . && cp package.json build && cp .eslintrc.js build && cp .eslintignore build",
+    "build": "tsc -p . && cp package.json build && cp .eslintrc.js build && cp .eslintignore build && cp README.md build",
     "lint": "eslint \"src/**/*.{js,ts}\"",
     "lint:fix": "eslint --fix \"src/**/*.{js,ts}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/config": "^3.3.3",

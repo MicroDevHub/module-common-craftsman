@@ -26,7 +26,6 @@ module.exports = {
     ],
     'linebreak-style': ['error', 'unix'],
     'no-cond-assign': ['error', 'always'],
-    'no-console': 'off',
     'no-empty': 'warn',
     quotes: ['error', 'single'],
   },
