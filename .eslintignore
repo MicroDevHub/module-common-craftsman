@@ -1,0 +1,9 @@
+.git
+.github
+.vscode
+.yarn
+
+build
+coverage
+dist
+node_modules
