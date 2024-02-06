@@ -9,7 +9,6 @@ A Package written by NodeJS which provide common features used in services
 3. Custom ESLint - ensure JS/TS code follows code conventions
 
 ## How to use Module-Common-Craftsman
-
 ### Error-Handler
 
 1. Initialize express application: 
@@ -20,10 +19,11 @@ server: Express = express();
 ```
 import { errorHandler } from '@micro-dev-hub/module-common-craftsman';
 ```
-3. Use `errorHandler` in express application, make sure errorHandler middleware is added after routes in the express application
+3. Use `errorHandler` in express application
 ```
 express.use(errorHandler);
 ```
+> **Note:** make sure errorHandler middleware is added after routes in the express application
 4. Import and use `api-response-errors`
 
 Example use `validateRequest`:
@@ -81,15 +81,14 @@ logger.error('message');
 logger.warn('massage);
 logger.http('massage');
 logger.debug('massage');
-
 ```
 ### ESLint
 
 1. Add ESLint scripts to `package.json`
 ```
 {
-    "lint": "eslint --config ../@micro-dev-hub/module-common-craftsman/.eslintrc.js \"src/**/*.{js,ts}\"",
-    "lint:fix": "eslint --config ../@micro-dev-hub/module-common-craftsman/.eslintrc.js --fix \"src/**/*.{js,ts}\""
+    "lint": "eslint --config ./node_modules/@micro-dev-hub/module-common-craftsman/.eslintrc.js './**/*.{js,ts}'",
+    "lint:fix": "eslint --config ./node_modules/@micro-dev-hub/module-common-craftsman/.eslintrc.js --fix './**/*.{js,ts}'",
 }
 ```
 2. Use scripts to lint application
@@ -104,10 +103,10 @@ npm run lint:fix
 ```
 
 In case you want to extends/override the rules of eslint
-1. Create .eslintrc.json and extends rules of eslint from module-common-craftsman
+1. Create `.eslintrc.js` and extends rules of eslint from module-common-craftsman
 ```
 module.exports = {
-  "extends": "../common-services/.eslintrc.js",
+  "extends": "./node_modules/@micro-dev-hub/module-common-craftsman/.eslintrc.js",
   "rules": {
     // Add or override rules specific to your backend project
   }
@@ -116,7 +115,18 @@ module.exports = {
 2. Add scripts to `package.json`
 ```
 {
-    "lint": "eslint \"src/**/*.{js,ts}\"",
-    "lint:fix": "eslint --fix \"src/**/*.{js,ts}\"
+    "lint": "eslint './**/*.{js,ts}'",
+    "lint:fix": "eslint --fix './**/*.{js,ts}'"
 }
 ```
+> **Note:** These scripts will scan all file js, ts in your project. So if you want to ignore folder or file you can extend script with `--ignore-pattern `
+
+
+For example, to ignore `folderToExclude` and its files, use:
+```json
+"lint": "eslint --config ./node_modules/common-modules/.eslintrc.js \"./**/*.{js,ts}\" --ignore-pattern './folderToExclude/**'"
+```
+
+For example, to ignore `folderToExclude` and `fileToExclude.ts`, use:
+```json
+"lint": "eslint --config ./node_modules/common-modules/.eslintrc.js \"./**/*.{js,ts}\" --ignore-pattern './folderToExclude/fileToExclude.ts'"
