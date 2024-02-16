@@ -27,6 +27,8 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'no-cond-assign': ['error', 'always'],
     'no-empty': 'warn',
-    quotes: ['error', 'single'],
+    'quotes': ['error', 'single'],
+    "semi": ["error", "always"],
+    "eol-last": ["error", "always"],
   },
 };

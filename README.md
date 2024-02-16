@@ -124,9 +124,9 @@ module.exports = {
 
 For example, to ignore `folderToExclude` and its files, use:
 ```json
-"lint": "eslint --config ./node_modules/common-modules/.eslintrc.js \"./**/*.{js,ts}\" --ignore-pattern './folderToExclude/**'"
+"lint": "eslint --config ./node_modules/@micro-dev-hub/common-module-craftsman/.eslintrc.js \"./**/*.{js,ts}\" --ignore-pattern '**/folderToExclude/**'"
 ```
 
 For example, to ignore `folderToExclude` and `fileToExclude.ts`, use:
 ```json
-"lint": "eslint --config ./node_modules/common-modules/.eslintrc.js \"./**/*.{js,ts}\" --ignore-pattern './folderToExclude/fileToExclude.ts'"
+"lint": "eslint --config ./node_modules/@micro-dev-hub/common-module-craftsman/.eslintrc.js \"./**/*.{js,ts}\" --ignore-pattern '**/folderToExclude/fileToExclude.ts'"

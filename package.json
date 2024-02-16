@@ -1,6 +1,6 @@
 {
   "name": "@micro-dev-hub/module-common-craftsman",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "",
   "main": "index.js",
   "private": false,
@@ -12,6 +12,14 @@
     "url": "git+https://github.com/MicroDevHub/module-common-craftsman.git"
   },
   "author": "Kiet Tran",
+  "keywords": [
+    "logger",
+    "eslint",
+    "middleware",
+    "middlewares",
+    "error-hanlder",
+    "error-handling"
+  ], 
   "bugs": {
     "url": "https://github.com/MicroDevHub/module-common-craftsman/issues"
   },

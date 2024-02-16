@@ -4,7 +4,7 @@ export class NotFoundRoutingError extends BaseError {
   statusCode: number;
   constructor() {
     super('Route Not Found');
-    this.statusCode = 400;
+    this.statusCode = 404;
   }
 
   serializeErrors() {
